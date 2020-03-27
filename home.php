@@ -14,6 +14,7 @@ require_once("actions/dbconnect.php");
 <body>
 
 <?php 
+
 //-------------------------------
 //User Welcome
 
@@ -25,11 +26,11 @@ else
 {	
 	$user = $_SESSION['user'];
 	$sql_name = "SELECT * FROM user WHERE id = '$user'";
-	$result = mysqli_query($conn, $sql_name);
-		
+	$result = mysqli_query($conn, $sql_name);	
 	$name = $result->fetch_assoc();
 
 	echo "Welcome " .$name["name"];		
+
 }
 
 //-------------------------------

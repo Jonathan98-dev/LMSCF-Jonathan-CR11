@@ -69,14 +69,27 @@ if(isset($_POST['btn-signup']))
 	{
 		$password = hash('sha256',$password);
 
-		$res = mysqli_query($conn, "SELECT id, name, password FROM user WHERE name = '$name'");
+		$res = mysqli_query($conn, "SELECT id, name, password, status FROM user WHERE name = '$name'");
 		$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
 		$count = mysqli_num_rows($res);
 
 		if($count == 1 && $row['password'] == $password)
 		{
+
+//Is Admin --> admin.php
+
+			if($row["status"] == "admin")
+			{
+				$_SESSION["admin"] = $row["id"];
+				header("Location: admin.php");
+			}
+			else
+			{
 			$_SESSION['user'] = $row['id'];
-			header("Location: home.php");
+			header("Location: home.php");	
+			}			
+				
+	
 		}
 		else
 		{
@@ -124,9 +137,9 @@ if(isset($_POST['btn-signup']))
 		
 		<br>
 
-		<button type="submit" name = "btn-signup">Sign Up</button>
+		<button type="submit" name = "btn-signup">Sign In</button>
 
-		<a href="login.php">Login</a>
+		<a href="register.php">Go to Register</a>
 	</form>
 
 

@@ -136,7 +136,7 @@ if(isset($_POST['btn-signup']))
 
 		<button type="submit" name = "btn-signup">Sign Up</button>
 
-		<a href="login.php">Login</a>
+		<a href="login.php">Go to Login</a>
 	</form>
 
 

@@ -1,10 +1,14 @@
 <?php  
+
 ob_start();
 session_start();
+require_once 'actions/dbconnect.php';
+
 
 if(isset($_SESSION['user'])!="")
 {
 	header("Location: home.php");
+	exit;
 }
 
 include_once 'actions/dbconnect.php';
@@ -45,17 +49,8 @@ if(isset($_POST['btn-signup']))
 		$error = true;
 		$nameError = "Your Name is invalid!";
 	}
-	
-	$taken = "SELECT name FROM user WHERE name = '$name'";
-	$querytaken = mysqli_query($conn, $taken);
 
-	if($querytaken->num_rows !=0)
-	{
-		$error = true;
-		$errMSG = "Name already taken";
-	}
-
-//-------------------------------
+//-------------------------------	
 
 	if(empty($password))
 	{
@@ -65,50 +60,45 @@ if(isset($_POST['btn-signup']))
 	else if (strlen($password) < 6)
 	{
 		$error = true;
-		$passwordError = "Your Password must be atleast 6 characters long!";
+		$passwordError = "Your Password is atleast 6 characters long!";
 	}
-	else
-	{
-		$password = hash('sha256',$password);
-	}
-
-
-
+		
 //-------------------------------
 
 	if(!$error)
 	{
-		$query = "INSERT INTO user(name,password) VALUES ('$name','$password')";
-		$res = mysqli_query($conn, $query);
+		$password = hash('sha256',$password);
 
-		if($res)
+		$res = mysqli_query($conn, "SELECT id, name, password FROM user WHERE name = '$name'");
+		$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
+		$count = mysqli_num_rows($res);
+
+		if($count == 1 && $row['password'] == $password)
 		{
-			$errTyp = "success";
-			$errMSG = "Successfully registered, you can login now";
-			unset($name);
-			unset($password);
+			$_SESSION['user'] = $row['id'];
+			header("Location: home.php");
 		}
 		else
 		{
-			$errTyp = "danger";
-			$errMSG = "Something went wrong, try again later...";
+			$errMSG = "This user is not registered, try again...";
 		}
 	}
 
-//-------------------------------
+	//-------------------------------
 }
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register</title>
+	<title>Login</title>
 </head>
 <body>
-	
+
 	<form method = "POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']);?>">
 		
-		<p>Sign Up</p>
+		<p>Sign In</p>
 
 <?php  
 

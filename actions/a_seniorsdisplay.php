@@ -21,7 +21,7 @@ require_once("dbconnect.php");
 				$rows = $result->fetch_all(MYSQLI_ASSOC);
 				foreach ($rows as $key => $value) 
 				{
-					echo $value["id"]." | ". $value["name"]." | "."<br>"."<img style='width: 100px' src ='".$value["image"]."'> "."<a href='senhobbies.php?id=".$value["id"]."'>my hobbies</a>"."<br>";
+					echo "<div class = 'animals'>".$value["id"]." | ". $value["name"]." | "."<br>"."<img  src ='".$value["image"]."'> "."<a href='saw.php?id=".$value["id"]."'>my website</a>"."</div>";
 				}
 			}
 

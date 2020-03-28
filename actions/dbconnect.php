@@ -14,6 +14,6 @@
 		echo "error";
 	}
 
-	echo "success". "<hr>";
+	//echo "success". "<hr>";
 
 ?>

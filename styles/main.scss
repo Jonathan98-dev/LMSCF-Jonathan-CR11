@@ -1,0 +1,125 @@
+* 
+{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box; 
+}
+
+body 
+{
+	font-family: 'Roboto', sans-serif;
+	// background-image: url("img/pattern.jpg"); 
+	// background-size: 150px;
+	// backdrop-filter: invert(1);
+	// background-repeat: repeat;
+}
+
+#header
+{
+	background-color: white;
+	padding: 1em;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 5px solid indianred;
+	
+	#welcome
+	{
+		font-size: 1.5em;
+		display: flex;
+		a 
+		{
+			align-self: center;
+		}
+	}
+
+	#slsen
+	{
+		
+		display: flex;
+
+		a 
+		{
+			align-self: center;
+			
+			border-radius: 5px;
+			margin: 0.5em;
+			padding: 0.1em;
+			transition: 0.3s;
+			&:hover{box-shadow: 0px 0px 5px lightgrey;}
+			&:hover{padding: 0.1em 0.2em 0.1em 0.2em;}
+		}
+	}
+
+	#log
+	{
+		display: flex;
+		padding: 0.5em;
+		font-size: 1.2;
+		transition: 0.3s;
+		border-radius: 5px;
+		a 
+		{
+			align-self: center;
+		}
+
+		&:hover{background-color: palegreen;}
+
+	}
+	
+	a 
+	{
+		text-decoration: none;
+		color: black;
+		align-self: center;
+	}
+
+}
+
+// -------------------------------------small animals
+
+.container
+{
+	width:90vw;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: auto;
+
+	.animals
+	{
+		border-radius: 5px;
+		background: white;
+		margin: 1em 0em 1em 0em;
+		width:250px;
+		height: 250px;
+		box-shadow: 0px 0px 10px lightgrey;
+
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		
+		a 
+		{
+			text-decoration: none;
+			color: grey;
+			border: 1px solid black;
+			border-radius: 5px;
+			width: 50%;
+			margin: 0.5em auto 0em auto;
+			transition: 0.3s;
+			&:hover{background-color: HoneyDew;}
+		}
+
+		img
+		{
+			width: 230px;
+			height: 150px;
+			object-fit: cover;
+			align-self: center;
+			border-radius: 2px;
+		}
+	}	
+}
+

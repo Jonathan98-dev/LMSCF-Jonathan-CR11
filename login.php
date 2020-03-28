@@ -106,42 +106,99 @@ if(isset($_POST['btn-signup']))
 <html>
 <head>
 	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="styles/log.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 </head>
 <body>
-
-	<form method = "POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']);?>">
-		
-		<p>Sign In</p>
-
-<?php  
-
-		if(isset($errMSG))
+<div id = "header">
+	<div id = "welcome">
+		<a  href = "home.php">
+		<?php 
+		//-------------------------------
+		//User Welcome
+		if(!isset($_SESSION['user']))
 		{
-?>			
-			<div>
-				<?php echo $errMSG; ?>
-			</div>
-<?php  
+			echo "Welcome";
 		}
+		else
+		{	
+			$user = $_SESSION['user'];
+			$sql_name = "SELECT * FROM user WHERE id = '$user'";
+			$result = mysqli_query($conn, $sql_name);	
+			$name = $result->fetch_assoc();
+			echo "Welcome " .$name["name"];		
+		}
+		//-------------------------------
+		?>
+		</a>
+	</div>
 
-?>		
+
+	<div id = "slsen">
+		<a href="general.php">Small and Large</a>
+		<a href="senior.php">Our Seniors</a>
+	</div>
+
+
+	<div id = "log">
+		<?php 
+		
+		if(!isset($_SESSION['user']))
+		{
+			echo "<a href='login.php'>Login</a>";
+		}
+		else
+		{	
+			$user = $_SESSION['user'];
+			$sql_name = "SELECT * FROM user WHERE id = '$user'";
+			$result = mysqli_query($conn, $sql_name);	
+			$name = $result->fetch_assoc();
+			echo "<a href='logout.php?logout'>Logout</a>";		
+		}
+		
+		?>
+	</div>
+</div>
+
+
+
+
+<div class = "formcontainer">
 	
 
 
 
-		<input type="text" name="name" placeholder = "Enter Name" >
-		<span><?php echo $nameError ?></span>
+		<form method = "POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']);?>">
+			
+			<p>Sign In</p>
 
-		<input type="password" name="password" placeholder = "Enter Password">
-		<span><?php echo $passwordError ?></span>
-		
-		<br>
+	<?php  
 
-		<button type="submit" name = "btn-signup">Sign In</button>
+			if(isset($errMSG))
+			{
+	?>			
+				<div>
+					<?php echo $errMSG; ?>
+				</div>
+	<?php  
+			}
 
-		<a href="register.php">Go to Register</a>
-	</form>
+	?>		
 
+			<input type="text" name="name" placeholder = "Enter Name" >
+			<span><?php echo $nameError ?></span>
+
+			<input type="password" name="password" placeholder = "Enter Password">
+			<span><?php echo $passwordError ?></span>
+			
+			<br>
+
+			<button type="submit" name = "btn-signup">Sign In</button>
+
+			<a href="register.php">Go to Register</a>
+		</form>
+
+</div>
 
 </body>
 </html>

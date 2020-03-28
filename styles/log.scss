@@ -1,0 +1,139 @@
+* 
+{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box; 
+}
+
+body 
+{
+	font-family: 'Roboto', sans-serif;
+	// background-image: url("img/pattern.jpg"); 
+	// background-size: 150px;
+	// backdrop-filter: invert(1);
+	// background-repeat: repeat;
+}
+
+#header
+{
+	background-color: white;
+	padding: 1em;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 5px solid indianred;
+	
+	#welcome
+	{
+		font-size: 1.5em;
+		display: flex;
+		a 
+		{
+			align-self: center;
+		}
+	}
+
+	#slsen
+	{
+		
+		display: flex;
+
+		a 
+		{
+			align-self: center;
+			
+			border-radius: 5px;
+			margin: 0.5em;
+			padding: 0.1em;
+			transition: 0.3s;
+			&:hover{box-shadow: 0px 0px 5px lightgrey;}
+			&:hover{padding: 0.1em 0.2em 0.1em 0.2em;}
+		}
+	}
+
+	#log
+	{
+		display: flex;
+		padding: 0.5em;
+		font-size: 1.2;
+		transition: 0.3s;
+		border-radius: 5px;
+		a 
+		{
+			align-self: center;
+		}
+
+		&:hover{background-color: palegreen;}
+
+	}
+	
+	a 
+	{
+		text-decoration: none;
+		color: black;
+		align-self: center;
+	}
+
+}
+
+// -------------------------------------log form
+
+.formcontainer
+{
+	width: 60vw;
+	box-shadow: 0px 0px 15px lightgrey;
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 3em;
+	min-height: 300px;
+	
+	form
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		height: 300px;
+		
+		p 
+		{
+			font-size: 1.5em;
+			font-weight: 200;
+			margin-bottom: 1em;
+
+			background-color: rgba(0,0,0,0.1);
+		}
+
+		input
+		{
+			width: 65%;
+			align-self: center;
+			font-size: 1.1em;
+			margin: 0.5em 0em 0.5em 0em;
+			border-radius: 5px;
+			border:none;
+			box-shadow: 0px 0px 15px lightgrey;
+			padding: 0.1em;
+		}
+		button
+		{
+			width: 150px;
+			align-self: center;
+			padding: 0.3em;
+			border: none;
+			border-left: 4px indianred solid;
+			background-color: transparent;
+			margin-bottom: 1em;
+			font-size: 1.1em;
+			transition: 0.3s;
+			&:hover{background-color: lightgrey;}
+		}
+
+		a 
+		{
+			text-decoration: none;
+			color: grey;
+			font-weight: 200;
+			font-size: 1em;
+		}
+	}
+}

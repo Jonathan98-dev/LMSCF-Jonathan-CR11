@@ -25,10 +25,11 @@ if($_POST)
 	$imagelink= $_POST["imagelink"];
 	$sheltername= $_POST["sheltername"];
 	$description= $_POST["description"];
+	$hobbies = $_POST["hobbies"];
 
-	$sql_small = "INSERT INTO `s_animals`(`name`, `image`, `description`, `location`) VALUES ('$name','$imagelink','$description','$sheltername')";
+	$sql_large = "INSERT INTO `l_animals`(`name`, `image`, `description`, `hobbies`, `location`) VALUES ('$name','$imagelink','$description','$hobbies','$sheltername')";
 
-	if(mysqli_query($conn, $sql_small))
+	if(mysqli_query($conn, $sql_large))
 	{
 		echo "Success";
 		header("refresh:3;url=../admin.php");

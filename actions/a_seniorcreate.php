@@ -23,12 +23,15 @@ if($_POST)
 
 	$name= $_POST["name"];
 	$imagelink= $_POST["imagelink"];
-	$sheltername= $_POST["sheltername"];
 	$description= $_POST["description"];
+	$age = $_POST["age"];
+	$hobbies = $_POST["hobbies"];
+	$date = $_POST["date"];
+	$sheltername= $_POST["sheltername"];
 
-	$sql_small = "INSERT INTO `s_animals`(`name`, `image`, `description`, `location`) VALUES ('$name','$imagelink','$description','$sheltername')";
+	$sql_senior = "INSERT INTO `sen_animals`(`name`, `image`, `description`, `age`, `hobbies`, `date`, `location`) VALUES ('$name','$imagelink','$description','$age','$hobbies','$date','$sheltername')";
 
-	if(mysqli_query($conn, $sql_small))
+	if(mysqli_query($conn, $sql_senior))
 	{
 		echo "Success";
 		header("refresh:3;url=../admin.php");
@@ -36,10 +39,11 @@ if($_POST)
 	else
 	{
 		echo "error";
-		echo strlen($description);
+		
 
 		if(strlen($description) > 999)
-		{
+		{	
+			echo strlen($description);
 			echo "description to long";
 		}
 	}	

@@ -9,7 +9,7 @@ require_once"actions/dbconnect.php";
 		echo $_GET["id"];
 	}
 	 
-	$sql = "SELECT * FROM s_animals WHERE id =".$_GET["id"];
+	$sql = "SELECT * FROM sen_animals WHERE id =".$_GET["id"];
 	$result = mysqli_query($conn, $sql);
 	if($result->num_rows == 0)
 			{

@@ -71,7 +71,22 @@ if($_GET['name'])
 	</head>
 	<body>
 		
-		<form action=""></form>
+	<form action="a_update.php" method = "post">
+
+		<label for = "animals">Type of animal:</label>
+
+		<br>
+
+		<select name ="animaloptions" id="animals">
+		  <option value="small">Small Animal</option>
+		  <option value="large">Large Animal</option>
+		  <option value="senior">Senior Animal</option>
+		</select>
+		
+		<br>
+
+		<button type="submit">Update</button>
+	</form>
 
 
 	</body>
@@ -93,7 +108,24 @@ if($_GET['name'])
 		<title>Delete</title>
 	</head>
 	<body>
-	
+		
+		<form action="a_delete.php" method = "post">
+
+		<label for = "animals">Type of animal:</label>
+
+		<br>
+
+		<select name ="animaloptions" id="animals">
+		  <option value="small">Small Animal</option>
+		  <option value="large">Large Animal</option>
+		  <option value="senior">Senior Animal</option>
+		</select>
+		
+		<br>
+
+		<button type="submit">Delete</button>
+	</form>
+
 	</body>
 	</html>
 

@@ -16,7 +16,7 @@ require_once("dbconnect.php");
 			{
 				$row = $result->fetch_assoc();
 
-				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'> "."<a href='saw.php?id=".$value["id"]."'>my website</a>"."<br>";
+				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'> "."<a href='saw.php?id=".$row["id"]."'>my website</a>"."<br>";
 			}
 			else
 			{

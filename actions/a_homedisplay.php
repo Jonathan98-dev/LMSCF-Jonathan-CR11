@@ -16,14 +16,14 @@ require_once("dbconnect.php");
 			{
 				$row = $result->fetch_assoc();
 
-				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'>  "."<br>";
+				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'> "."<a href='saw.php?id=".$value["id"]."'>my website</a>"."<br>";
 			}
 			else
 			{
 				$rows = $result->fetch_all(MYSQLI_ASSOC);
 				foreach ($rows as $key => $value) 
 				{
-					echo $value["id"]." | ". $value["name"]." | "."<br>"."<img style='width: 100px' src ='".$value["image"]."'>  "."<br>";
+					echo $value["id"]." | ". $value["name"]." | "."<br>"."<img style='width: 100px' src ='".$value["image"]."'> "."<a href='saw.php?id=".$value["id"]."'>my website</a>"."<br>";
 				}
 			}
 
@@ -43,14 +43,14 @@ require_once("dbconnect.php");
 			{
 				$row = $result->fetch_assoc();
 
-				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'>  "."<br>";
+				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'> "."<a href='hobbies.php?id=".$value["id"]."'>my hobbies</a>"."<br>";
 			}
 			else
 			{
 				$rows = $result->fetch_all(MYSQLI_ASSOC);
 				foreach ($rows as $key => $value) 
 				{
-					echo $value["id"]." | ". $value["name"]." | "."<br>"."<img style='width: 100px' src ='".$value["image"]."'>  "."<br>";
+					echo $value["id"]." | ". $value["name"]." | "."<br>"."<img style='width: 100px' src ='".$value["image"]."'> "."<a href='hobbies.php?id=".$value["id"]."'>my hobbies</a>"."<br>";
 				}
 			}
 
@@ -71,14 +71,14 @@ require_once("dbconnect.php");
 			{
 				$row = $result->fetch_assoc();
 
-				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'>  "."<br>";
+				echo $row["id"]." | ". $row["name"]." | "."<br>"."<img style='width: 100px' src ='".$row["image"]."'> "."<a href='hobbies.php?id=".$value["id"]."'>my hobbies</a>"."<br>";
 			}
 			else
 			{
 				$rows = $result->fetch_all(MYSQLI_ASSOC);
 				foreach ($rows as $key => $value) 
 				{
-					echo $value["id"]." | ". $value["name"]." | "."<br>"."<img style='width: 100px' src ='".$value["image"]."'>  "."<br>";
+					echo $value["id"]." | ". $value["name"]." | "."<br>"."<img style='width: 100px' src ='".$value["image"]."'> "."<a href='hobbies.php?id=".$value["id"]."'>my hobbies</a>"."<br>";
 				}
 			}
 

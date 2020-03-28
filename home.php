@@ -30,7 +30,6 @@ else
 	$name = $result->fetch_assoc();
 
 	echo "Welcome " .$name["name"];		
-
 }
 
 //-------------------------------
@@ -47,3 +46,5 @@ include_once 'actions/a_homedisplay.php';
 <a href="login.php">Login</a>
 </body>
 </html>
+
+<?php ob_end_flush(); ?>
